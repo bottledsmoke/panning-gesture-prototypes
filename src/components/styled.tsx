@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { animated } from "@react-spring/web";
 
-export const BigButton = styled.button<{ spacing: number }>`
+export const BigButton = styled.button<{ spacing?: number }>`
   flex: 1 1 auto;
   /* @ts-ignore */
   margin-right: ${({ spacing }) => spacing}px;
@@ -31,7 +31,7 @@ export const FlexItem = styled(animated.div)`
   }
 `;
 
-export const FlexItemStatic = styled.div<{ contentWidth: number }>`
+export const FlexItemStatic = styled.div<{ contentWidth?: number }>`
   width: ${(props) => props.contentWidth || 500}px;
   /* flex: 1 0 ${(props) => props.contentWidth || 500}px; */
   height: 100%;

@@ -1,7 +1,7 @@
 {
-  "name": "panning-gesture-prototypes",
+  "name": "proto-panning-gesture-prototypes",
   "version": "1.0.0",
-  "description": "One man's journey to make a nice responsive slider.",
+  "description": "making modals sing",
   "keywords": [],
   "main": "src/index.tsx",
   "dependencies": {
