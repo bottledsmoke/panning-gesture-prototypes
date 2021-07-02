@@ -31,7 +31,7 @@ export const FlexItem = styled(animated.div)`
   }
 `;
 
-export const FlexItemStatic = styled.div<{ contentWidth?: number }>`
+export const FlexItemStatic = styled.div<{ contentWidth?: number | undefined }>`
   width: ${(props) => props.contentWidth || 500}px;
   /* flex: 1 0 ${(props) => props.contentWidth || 500}px; */
   height: 100%;

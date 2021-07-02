@@ -1,6 +1,6 @@
 import type React from "react";
 import { useRef, useLayoutEffect } from "react";
-import { animated, useSpring, config } from "@react-spring/web";
+import { animated, useSpring } from "@react-spring/web";
 import useMeasure from "react-use-measure";
 import { useDrag } from "react-use-gesture";
 import { clamp } from "lodash";
@@ -36,8 +36,8 @@ function Slider({ spacing = 16 }) {
     config: {
       tension: items.length * 100,
       mass: 2,
-      friction: 50
-    }
+      friction: 50,
+    },
   }));
 
   // update the spring opposite to shrinking / growing viewports to keep it still.
@@ -86,7 +86,7 @@ function Slider({ spacing = 16 }) {
 
       const bounds = {
         lb: 0,
-        rb: cW - sW
+        rb: cW - sW,
       };
 
       const over = 150; // rubberband tolerance
@@ -105,7 +105,7 @@ function Slider({ spacing = 16 }) {
       }
 
       api.start({
-        x: down ? _final : clamp(_final, bounds.rb, bounds.lb) // clamp ensures rubberbanding springs back to bounds.
+        x: down ? _final : clamp(_final, bounds.rb, bounds.lb), // clamp ensures rubberbanding springs back to bounds.
         // immediate: down,
         // config: { velocity: vx, decay: true }
       });
@@ -122,7 +122,7 @@ function Slider({ spacing = 16 }) {
       // So, I use MX so that the scroller stays put when the window grows and shrinks
       initial: () => [spring.x.get(), 0],
       useTouch: true,
-      experimental_preventWindowScrollY: true
+      experimental_preventWindowScrollY: true,
     }
   );
 
@@ -139,7 +139,7 @@ function Slider({ spacing = 16 }) {
           style={{
             transform: spring.x.to((dx) => `translate3d(${dx}px, 0, 0)`),
             display: "inline-flex",
-            overflow: "hidden"
+            overflow: "hidden",
           }}
           className="slidable-container"
         >

@@ -58,12 +58,13 @@ export default function PanningPrototype({ spacing = 16, numVisible = 3 }) {
   useLayoutEffect(() => {
     panningBounds.current = [
       0,
-      ip((sliderWidth - containerWidth + 32) / sliderWidth)
+      ip((sliderWidth - containerWidth + 32) / sliderWidth),
     ];
-    const diff = {
-      container: containerWidth - containerWidthPrevious.current,
-      slider: sliderWidth - sliderWidthPrevious.current
-    };
+    // ! commented out to suppress assigned value but never used warning. I know.
+    // const diff = {
+    //   container: containerWidth - containerWidthPrevious.current,
+    //   slider: sliderWidth - sliderWidthPrevious.current
+    // };
     const nextOffset =
       (dragOffset.current * sliderWidthPrevious.current) / sliderWidth;
     // console.log(
@@ -77,7 +78,7 @@ export default function PanningPrototype({ spacing = 16, numVisible = 3 }) {
     api.start({ x: percent(dragOffset.current), immediate: true });
     containerWidthPrevious.current = containerWidth;
     sliderWidthPrevious.current = sliderWidth;
-  }, [containerWidth]);
+  }, [containerWidth, api, sliderWidth]);
 
   const updateItemIndex = (
     index: React.MutableRefObject<number>,
@@ -92,7 +93,7 @@ export default function PanningPrototype({ spacing = 16, numVisible = 3 }) {
     const _limit = ip((sliderWidth - containerWidth + 32) / sliderWidth);
     api.start(
       {
-        x: next < _limit ? _limit : next
+        x: next < _limit ? _limit : next,
       } // negative because transform is in inverse direction. Same for all because we are animating the default layout.
     );
   };
@@ -123,9 +124,9 @@ export default function PanningPrototype({ spacing = 16, numVisible = 3 }) {
       bounds: {
         // panning scrolls the object the opposite direction, so the limits are chiral mirrors of each other.
         right: 0, // left-hand limit
-        left: -(sliderWidth - containerWidth + 32) // right-hand limit
+        left: -(sliderWidth - containerWidth + 32), // right-hand limit
       },
-      rubberband: true // allow the drag to go a little over the limit and bounce back.
+      rubberband: true, // allow the drag to go a little over the limit and bounce back.
     }
   );
 
@@ -139,7 +140,7 @@ export default function PanningPrototype({ spacing = 16, numVisible = 3 }) {
           {...bind()}
           ref={sliderRef}
           style={{
-            transform: spring.x.to((dx) => `translate3d(${dx}%, 0, 0)`)
+            transform: spring.x.to((dx) => `translate3d(${dx}%, 0, 0)`),
           }}
           className="slidable-container"
         >
@@ -163,7 +164,7 @@ export default function PanningPrototype({ spacing = 16, numVisible = 3 }) {
           style={{
             flex: "1 1 auto",
             marginRight: `${spacing}px`,
-            padding: "24px"
+            padding: "24px",
           }}
           onClick={(e) => handleClick(e, "previous")}
         >
