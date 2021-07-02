@@ -1,0 +1,81 @@
+/* css reset. always include this */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* full vertical fill start */
+html {
+  min-height: 100%;
+}
+
+body,
+#root,
+.App {
+  min-height: 100vh;
+}
+/* full vertical fill end */
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+.bg-blue {
+  background-color: dodgerblue;
+}
+
+.bg-red {
+  background-color: tomato;
+}
+
+.bg-green {
+  background-color: darkslategray;
+}
+
+.bg-gray {
+  background-color: gainsboro;
+}
+
+.all-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.slidable-container {
+  display: inline-flex;
+  height: 100%;
+}
+
+main {
+  flex: 1 0 auto;
+  min-height: 400px;
+  position: relative;
+  padding: 16px;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+
+header,
+footer {
+  height: 72px;
+  flex: 0 0 72px;
+}
