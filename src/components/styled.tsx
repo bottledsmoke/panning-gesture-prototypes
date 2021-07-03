@@ -31,7 +31,7 @@ export const FlexItem = styled(animated.div)`
   }
 `;
 
-export const FlexItemStatic = styled.div<{ contentWidth?: number | undefined }>`
+export const FlexItemStatic = styled.div<{ contentWidth?: number }>`
   width: ${(props) => props.contentWidth || 500}px;
   /* flex: 1 0 ${(props) => props.contentWidth || 500}px; */
   height: 100%;
@@ -39,7 +39,7 @@ export const FlexItemStatic = styled.div<{ contentWidth?: number | undefined }>`
   will-change: transform;
   /* text styles */
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   font-size: 108px;
   font-weight: 600;
