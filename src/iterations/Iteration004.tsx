@@ -8,6 +8,8 @@ const colors: string[] = ["green", "blue", "red"];
 const items: string[] = [...colors, ...colors, colors[0]];
 // END ITEMS
 
+const shortList = ["green", "blue"];
+
 /**
  * This one works.
  *
@@ -40,6 +42,23 @@ export default function Iteration004() {
         header
       </FlexRow>
       <Slider config={springConfig} spacing={spacing}>
+        {shortList.map((color, i) => (
+          <div
+            className={`bg-${color}`}
+            style={{
+              flex: "1 0 100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            key={`item=${i}`}
+          >
+            <h1 className="no-select">{`0${i}`}</h1>
+          </div>
+        ))}
+      </Slider>
+      <Slider config={springConfig} spacing={spacing} speed={1.25}>
         {items.map((color, i) => (
           <div
             className={`bg-${color}`}
