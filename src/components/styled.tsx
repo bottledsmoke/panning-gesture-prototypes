@@ -56,4 +56,6 @@ export const FlexRow = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  /* below is needed to align sliders smaller than the viewport to the left bc they are inline-flex */
+  text-align: left;
 `;
